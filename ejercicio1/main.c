@@ -9,6 +9,7 @@ struct nodo{
 //vardiable global que apunta al primer nodo de la lista
 struct nodo*raiz=NULL;
 
+//funcion para poder insertar un nuevo nodo a la pila
 void insertar(int x){
     struct nodo*nuevo;
     nuevo=malloc(sizeof(struct nodo));
@@ -22,6 +23,7 @@ void insertar(int x){
         raiz=nuevo;
     }
 }
+//funcion para imprimir toda la pila
 void imprimir(){
     struct nodo*reco=raiz;
     printf("Lista completa.\n");
@@ -32,6 +34,7 @@ void imprimir(){
     }
     printf("\n");
 }
+//funcion para extraer un daato de la pila
 int extraer(){
     if(raiz!=NULL){
         int informacion=raiz->info;
@@ -41,7 +44,7 @@ int extraer(){
         return informacion;
     }
 }
-
+//funcion para eliminar todos los datos de la pila
 void liberar(){
 struct nodo*reco=raiz;
 struct nodo*bor;
@@ -52,10 +55,11 @@ while (reco!=NULL){
 }
 }
 
+//calcula el tamaño de la pila
 int calcularTamanio(){
     int contador=0;
     struct nodo*reco=raiz;
-    printf("Calcular tamanio.\n");
+    //printf("Calcular tamanio.\n");
     while (reco!=NULL){
         contador=contador+1;
         reco=reco->sig;
@@ -64,6 +68,7 @@ int calcularTamanio(){
     return contador;
 }
 
+//verificar si la pila esta vacia
 int isEmpty(){
     struct nodo*reco=raiz;
     if((raiz->info)){
@@ -78,17 +83,18 @@ int main() {
     insertar(40);
     insertar(3);
     if(calcularTamanio()==1){
-        printf("la pila esta vacia");
+        printf("la pila esta vacia\n");
     }else{
-        printf("la pila no esta vacia");
+        printf("la pila no esta vacia\n");
     }
     imprimir();
     printf("hay: %i nodos",calcularTamanio());
+    printf("\n");
     printf("extraemos de la pila:%i\n",extraer());
     if(calcularTamanio()){
-        printf("la pila esta vacia");
+        printf("la pila esta vacia\n");
     }else{
-        printf("la pila no esta vacia");
+        printf("la pila no esta vacia\n");
     }
     imprimir();
     liberar();

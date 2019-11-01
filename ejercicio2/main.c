@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//declaramos dos pilas la original, y donde guardaremos la invertida
 struct nodoPrimero{
     int dato;
     struct nodoPrimero*siguiente;
@@ -10,14 +11,11 @@ struct nodoSegundo{
     struct nodoPrimero*siguiente;
 };
 
+//variables que apuntan a los primeros nodos de las pilas
 struct nodoPrimero*raiz=NULL;
 struct nodoSegundo*raiz2=NULL;
 
-//void agregarPila(nodoPrimero*&pila,int n);
-
-//void agregarPila(struct nodoPrimero *&pila,int n){
-  //  struct nodoPrimero nuevoNodo;
-//}
+//funcion para poder insertar un nuevo nodo a la pila 1
 void insertarPila1(int x){
     struct nodoPrimero *nuevo;
     nuevo = malloc(sizeof(struct nodoPrimero));
@@ -30,6 +28,7 @@ void insertarPila1(int x){
         raiz=nuevo;
     }
 }
+//funcion para poder insertar un nuevo nodo a la pila 2
 void insertarPila2(int x){
     struct nodoSegundo *nuevo;
     nuevo = malloc(sizeof(struct nodoSegundo));
@@ -42,7 +41,7 @@ void insertarPila2(int x){
         raiz2=nuevo;
     }
 }
-
+//funcion para imprimir toda la pila 1
 void imprimirPila1(){
     struct nodoPrimero *reco=raiz;
     printf("Pila original.\n");
@@ -52,6 +51,7 @@ void imprimirPila1(){
     }
     printf("\n");
 }
+//funcion para imprimir toda la pila 2
 void imprimirPila2(){
     struct nodoSegundo *reco=raiz2;
     printf("Pila invertida.\n");
@@ -61,7 +61,7 @@ void imprimirPila2(){
     }
     printf("\n");
 }
-
+//metodo para invertir las pilas
 int invertir(){
     if(raiz!=NULL){
         while (raiz!=NULL){
